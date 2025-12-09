@@ -84,7 +84,7 @@ TOP_N = st.sidebar.slider("Top N", min_value=5, max_value=50, value=10)
 genres_series = pop["genres"].dropna().str.split("|").explode().unique()
 genres_list = sorted([g for g in genres_series if isinstance(g, str)])
 
-selected_genre = st.sidebar.selectbox("Filter by Genre (optional)", ["None"] + genres_list)
+selected_genre = st.sidebar.selectbox("Filter by Genre", ["None"] + genres_list)
 selected_year = st.sidebar.slider("Minimum Year", min_value=1900, max_value=2024, value=2000)
 
 #Main app tabs
