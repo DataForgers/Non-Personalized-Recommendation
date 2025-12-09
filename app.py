@@ -12,7 +12,6 @@ st.set_page_config(
 )
 
 #Data Loading
-
 DATA_DIR = "movielens_data/ml-latest-small"
 ratings_path = os.path.join(DATA_DIR, "ratings.csv")
 movies_path = os.path.join(DATA_DIR, "movies.csv")
