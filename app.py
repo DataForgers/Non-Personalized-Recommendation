@@ -3,6 +3,8 @@ import pandas as pd
 import numpy as np
 import os
 import matplotlib.pyplot as plt
+import urllib.request
+import zipfile
 
 st.set_page_config(
     page_title="Non-Personalized Movie Recommender",
@@ -16,7 +18,21 @@ ratings_path = os.path.join(DATA_DIR, "ratings.csv")
 movies_path = os.path.join(DATA_DIR, "movies.csv")
 
 @st.cache_data
+def download_data():
+    if not os.path.exists(ratings_path) or not os.path.exists(movies_path):
+        os.makedirs(DATA_DIR, exist_ok=True)
+        url = "https://files.grouplens.org/datasets/movielens/ml-latest-small.zip"
+        zip_path = "movielens_data/ml-latest-small.zip"
+        
+        with st.spinner("Downloading MovieLens dataset..."):
+            urllib.request.urlretrieve(url, zip_path)
+            with zipfile.ZipFile(zip_path, 'r') as zip_ref:
+                zip_ref.extractall("movielens_data")
+            os.remove(zip_path)
+
+@st.cache_data
 def load_data():
+    download_data()
     ratings = pd.read_csv(ratings_path)
     movies = pd.read_csv(movies_path)
 
