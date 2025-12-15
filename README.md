@@ -1,4 +1,4 @@
-# Non-Personalized Movie Recommender
+# Non-Personalized Movie Recommender by GROUP1
 
 A Streamlit-based movie recommendation system using non-personalized approaches.
 
@@ -25,3 +25,6 @@ streamlit run app.py
 ## Data
 
 This project uses the MovieLens dataset. Download it from [MovieLens](https://grouplens.org/datasets/movielens/) and place it in `movielens_data/ml-latest-small/`.
+
+## Deployment
+We deployed the recommendation system using streamlit since it is fast and simple. View demo here https://non-personalized-recommendation-3qnkcgeghznepiihclv9fp.streamlit.app/
